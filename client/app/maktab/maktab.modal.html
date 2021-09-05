@@ -1,0 +1,100 @@
+        <div class="modal-content" id="custModal">
+            <div class="modal-header">
+              <button type="button" class="close" ng-click="cancel()" aria-label="Close">
+                <span  aria-hidden="true">×</span></button>
+              <h4 ng-show="!courier.id" class="modal-title">Add New maktab</h4>
+              <h4 ng-show="courier.id" class="modal-title">Update Existing maktab</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form" name="form" ng-submit="signUp(form)" autocomplete="off" novalidate>
+                  <div class="row form-group">
+                       <div ng-class="{ 'has-success': form.name.$valid && submitted, 'has-error': form.name.$invalid && submitted }">
+                           <label class="col-sm-4 col-form-label">maktab name</label>
+                           <div class="col-sm-8">
+                               <input type="text" name="fname" class="form-control input-sm" ng-model="courier.name" ng-disabled="!isEdit" autofocus required>
+                               <span class="help-block" ng-show="form.name.$error.required && submitted">
+                                   Please enter maktab name.
+                               </span>
+                           </div>
+                       </div>
+                   </div>
+                  <div class="row form-group">
+                       <div ng-class="{ 'has-success': form.area.$valid && submitted, 'has-error': form.area.$invalid && submitted }">
+                           <label class="col-sm-4 col-form-label">maktab area</label>
+                           <div class="col-sm-8">
+                               <input type="text" name="area" class="form-control input-sm" ng-model="courier.area" ng-disabled="!isEdit" autofocus required>
+                               <span class="help-block" ng-show="form.area.$error.required && submitted">
+                                   Please enter maktab area.
+                               </span>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="row form-group">
+                        <div ng-class="{ 'has-success': form.area.$valid && submitted, 'has-error': form.area.$invalid && submitted }">
+                            <label class="col-sm-4 col-form-label">maktab id</label>
+                            <div class="col-sm-8">
+                                <input type="text" name="area" class="form-control input-sm" ng-model="courier.id" ng-disabled="!isEdit" autofocus required>
+                                <span class="help-block" ng-show="form.area.$error.required && submitted">
+                                    Please enter maktab id.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                       <div class="row form-group">
+                            <div ng-class="{ 'has-success': form.fname.$valid && submitted, 'has-error': form.fname.$invalid && submitted }">
+                                <label class="col-sm-4 col-form-label">First Name</label>
+                                <div class="col-sm-8">
+                                    <input type="text" name="fname" class="form-control input-sm" ng-model="courier.teacher.first_name" ng-disabled="!isEdit" autofocus required>
+                                    <span class="help-block" ng-show="form.fname.$error.required && submitted">
+                                        Please enter First Name.
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div ng-class="{ 'has-success': form.email.$valid && submitted, 'has-error': form.email.$invalid && submitted }">
+                                <label class="col-sm-4 col-form-label" style="padding-right:0px;">Email Address</label>
+                                <div class="col-sm-8">
+                                    <input type="text" name="email" class="form-control input-sm" ng-model="courier.teacher.email" ng-pattern="emailRegExp" ng-disabled="!isEdit" required>
+                                    <span class="help-block" ng-show="form.email.$error.required && submitted">
+                                        Please enter email address.
+                                    </span>
+                                    <span class="help-block" ng-show="!form.email.$error.required && form.email.$invalid && submitted">
+                                         Please enter valid email address.
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div ng-class="{ 'has-success': form.phone.$valid && submitted, 'has-error': form.phone.$invalid && submitted }">
+                                <label class="col-sm-4 col-form-label">Phone</label>
+                                <div class="col-sm-8">
+                                    <input type="text" name="phone" class="form-control input-sm" ng-model="courier.teacher.phone" ng-pattern="phoneRegExp" ng-disabled="!isEdit" required>
+                                    <span class="help-block" ng-show="form.phone.$error.required && submitted">
+                                        Please enter Phone#.
+                                    </span>
+                                    <span class="help-block" ng-show="!form.phone.$error.required && form.phone.$invalid && submitted">
+                                        Please enter valid Phone#.
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div ng-class="{ 'has-success': form.password.$valid && submitted}">
+                                <label class="col-sm-4 col-form-label">password</label>
+                                <div class="col-sm-8">
+                                    <input type="text" name="password" class="form-control input-sm" ng-model="courier.teacher.password"  required>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary pull-left btn-sm" ng-click="cancel()" >Close</button>
+              <button type="button" class="btn btn-primary btn-sm" ng-click="onEdit()" >Edit</button>
+              <button type="button" class="btn btn-primary btn-sm" ng-click="saveItem()" ng-disabled="!isEdit"> Save
+              </button>
+
+            </div>
+          </div>

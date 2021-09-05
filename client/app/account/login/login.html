@@ -1,0 +1,82 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+  <div class="container" style="max-width: 430px; padding-top: 10%;">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="panel panel-success">
+          <div class="panel-heading">
+            Admin Login
+          </div>
+          <div class="panel-body">
+            <form class="form" name="form" ng-submit="login(form)" autocomplete="off" novalidate>
+
+              <div class="row form-group">
+                <div ng-class="{ 'has-success': form.email.$valid && submitted, 'has-error': form.email.$invalid && submitted }">
+                  <label class="col-sm-4 col-form-label">Email Address</label>
+                  <div class="col-sm-8">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <i style="width: 14px;" class="fa fa-envelope-o">
+                        </i>
+                      </span>
+                      <input type="text" name="email" class="form-control input-sm" ng-model="user.email" ng-pattern="emailRegExp"
+                        autofocus required>
+                    </div>
+                    <span class="help-block" ng-show="form.email.$error.required && submitted">
+                      Please enter email address.
+                    </span>
+                    <span class="help-block" ng-show="!form.email.$error.required && form.email.$invalid && submitted">
+                      Please enter valid email address.
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div ng-class="{ 'has-success': form.password.$valid && submitted, 'has-error': form.password.$invalid && submitted }">
+                  <label class="col-sm-4 col-form-label">Password</label>
+                  <div class="col-sm-8">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <i style="width: 14px;" class="fa fa-key">
+                        </i>
+                      </span>
+                      <input type="password" name="password" id="pwdId" class="form-control input-sm" autocomplete="off"
+                        ng-model="user.password" required>
+                    </div>
+                    <span class="help-block" ng-show="form.password.$error.required && submitted">
+                      Please enter your password.
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row has-error" ng-show="errors.other && errors.other.length > 0">
+                <div class="col-sm-12">
+                  <span class="help-block">{{ errors.other }}</span>
+                </div>
+              </div>
+
+              <div class="row form-group-sm">
+                <div class="col-sm-6">
+                  <a href="#" tabindex="-1" ng-click="forgotPassword()" style="line-height: 30px; margin: auto;">
+                    Forgot Password ?
+                  </a>
+                </div>
+                <div class="col-sm-6">
+                  <div class="btn-group pull-right">
+                    <button class="btn btn-primary btn-sm" aria-disabled="true" style="width: 80px;" type="submit">
+                      Login
+                    </button>
+                    <button class="btn btn-primary btn-sm" style="width: 80px;" ng-click="reset()">
+                      Reset
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

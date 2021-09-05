@@ -1,0 +1,82 @@
+<div class="fixed">
+
+  <header class="main-header">
+    <!-- Logo -->
+   <a href="index2.html" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <!-- <img class="logo-mini" src="assets/images/logo_min_yel.png" /> -->
+      <!-- logo for regular state and mobile devices -->
+      <!-- <img class="logo-lg" src="assets/images/logo_yel.png" /></a> -->
+      <p class="logoStyle">MAKTAB</p>
+    </a>
+
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+
+      <!-- Navbar Right Menu -->
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <!-- User Account: style can be found in dropdown.less -->
+          <li class="dropdown user user-menu" dropdown>
+            <a href="#" class="dropdown-toggle eng-style" data-toggle="dropdown" role="button" aria-expanded="false">
+              <i class="fa fa-user-circle-o" aria-hidden="true"></i>{{user.email}}&nbsp;<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-left" role="menu" style="width: auto;">
+              <li><a href="#" ng-click="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
+              <li><a href="#" ng-click="showAbout()"><i class="fa fa-info-circle" aria-hidden="true"></i>About</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">MAIN NAVIGATION</li>
+        <li ui-sref-active="active">
+          <a ui-sref="dashboard">
+            <i class="fa fa-dashboard text-blue"></i><span>Home</span>
+          </a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="teachers">
+            <i class="fa fa-tachometer text-blue"></i><span>Teachers</span>
+          </a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="students">
+            <i class="fa fa-tachometer text-blue"></i><span>Students</span>
+          </a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="maktab">
+            <i class="fa fa-tachometer text-blue"></i><span>Maktab</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div id="contentArea" class="content-wrapper">
+    <div class="ui-view-bg ui-view-content">
+      <!-- Add your site or application content here -->
+      <div ui-view="" id="contentView"></div>
+    </div>
+  </div>
+  <!-- /.content-wrapper -->
+
+  <div ng-include="'app/footer/footer.html'"></div>
+
+</div>
+<!-- ./wrapper -->
